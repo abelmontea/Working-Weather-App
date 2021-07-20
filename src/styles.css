@@ -1,0 +1,37 @@
+.container {
+  max-width: 700px;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: Helvetica, Sans-Serif;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgb(190, 162, 193) 0%,
+    rgb(243, 230, 223) 97%
+  );
+  background-repeat: no-repeat;
+}
+.container {
+  padding-top: 30px;
+}
+#weather-info {
+  padding: 15px;
+  margin-top: 30px;
+}
+#current-temperature-img {
+  text-align: right;
+}
+#city-state {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+#weather-info {
+  background: linear-gradient(
+    180deg,
+    rgb(111, 64, 152) 0%,
+    rgb(162, 117, 151) 100%
+  );
+}
