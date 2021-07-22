@@ -48,6 +48,7 @@
 
       <div id="weather-info" class="border-white rounded">
         <div id="city-state">Seattle, WA Weather</div>
+        <div id="local-time">As of 1:52 pm PST</div>
         <div id="current-weather" class="row justify-content-between">
           <div id="floating-temperature" class="col">
             <span id="current-temperature"></span>
@@ -61,13 +62,15 @@
           </div>
           <div id="current-temperature-img" class="col-4">
             <img src="src/images/cloudy-day-1.svg" />
-            <h2>85°/72°</h2>
+            <h2>
+              <span id="high-temp">85°</span>/<span id="low-temp"> 72°</span>
+            </h2>
           </div>
         </div>
         <div id="weather-stats">
-          Precipitation: 2%
+          Humidity: <span id="humidity">2</span>%
           <br />
-          Wind: 27 km/h
+          Wind: <span id="wind-speed"></span> m/s
         </div>
       </div>
     </div>
