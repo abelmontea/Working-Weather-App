@@ -11,7 +11,14 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -39,25 +46,31 @@
         </div>
       </div>
 
-      <div id="weather-info" class="border rounded">
-        <div id="city-state">Waipahu, HI Weather</div>
-        <div id="local-time">As of 1:58 pm HST</div>
+      <div id="weather-info" class="border-white rounded">
+        <div id="city-state">Seattle, WA Weather</div>
         <div id="current-weather" class="row justify-content-between">
-          <div id="current-temperature" class="col-4">
-            <h1>83° <span id="unit-conversion">C|F</span></h1>
-            <h2>Mostly Cloudy</h2>
+          <div id="floating-temperature" class="col">
+            <span id="current-temperature"></span>
+            <span id="units"
+              ><a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a></span
+            >
+            <div id="weather-description">
+              <h2></h2>
+            </div>
           </div>
           <div id="current-temperature-img" class="col-4">
             <img src="src/images/cloudy-day-1.svg" />
             <h2>85°/72°</h2>
           </div>
         </div>
-        <div id="weather-description">
+        <div id="weather-stats">
           Precipitation: 2%
           <br />
           Wind: 27 km/h
         </div>
       </div>
     </div>
+    <script src="src/scripts.js"></script>
   </body>
 </html>
