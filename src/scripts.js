@@ -26,6 +26,43 @@ function showSeattleWeather(response) {
 
 seattleWeather();
 
+//date and time funcitonality
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+let day = document.querySelector("#day");
+let now = new Date();
+
+day.innerHTML = `${days[now.getDay()]}`;
+
+function formatTime() {
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+
+  if (hours < 10) {
+    hours = `${hours}`;
+    minutes = `${minutes} AM`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (hours > 10) {
+    hours = `${hours - 12}`;
+    minutes = `${minutes} PM`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+let time = document.querySelector("#time");
+time.innerHTML = formatTime();
+
 //current location button functionality
 function showCurrentCity() {
   event.preventDefault();
