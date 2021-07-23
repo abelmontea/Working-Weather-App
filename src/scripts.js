@@ -135,4 +135,24 @@ function showNewCity() {
 let searchButton = document.querySelector(".search-button");
 searchButton.addEventListener("click", showNewCity);
 
-//Weather description and images
+//unit conversion
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temperature");
+  let fahrenheitTemp = (temperature.innerHTML * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitConversion = document.querySelector("#fahrenheit-link");
+fahrenheitConversion.addEventListener("click", convertToFahrenheit);
+
+function convertToCelcius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temperature");
+  let celciusTemp = ((temperature.innerHTML - 32) * 5) / 9;
+  temperature.innerHTML = Math.round(celciusTemp);
+}
+let celciusConversion = document.querySelector("#celsius-link");
+celciusConversion.addEventListener("click", convertToCelcius);
+
+//changing image with temperature
