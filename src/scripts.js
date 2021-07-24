@@ -22,6 +22,7 @@ function showSeattleWeather(response) {
   highTemp.innerHTML = `${showHighTemp}°`;
   humidity.innerHTML = `${showHumidity}`;
   wind.innerHTML = `${showWind}`;
+  celciusTemperature = response.data.main.temp;
 }
 
 seattleWeather();
@@ -95,6 +96,7 @@ function showCurrentCity() {
     lowTemp.innerHTML = `${showLowTemp}°`;
     newCity.innerHTML = `${response.data.name} Weather`;
     wind.innerHTML = `${showWind}`;
+    celciusTemperature = response.data.main.temp;
   }
 }
 
@@ -121,6 +123,7 @@ function newCityTemperature(response) {
   humidity.innerHTML = `${showHumidity}`;
   wind.innerHTML = `${showWind}`;
   cityDescription.innerHTML = `<h2>${description}</h2>`;
+  celciusTemperature = response.data.main.temp;
 }
 
 function showNewCity() {
@@ -139,7 +142,7 @@ searchButton.addEventListener("click", showNewCity);
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#current-temperature");
-  let fahrenheitTemp = (temperature.innerHTML * 9) / 5 + 32;
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(fahrenheitTemp);
 }
 
@@ -149,10 +152,11 @@ fahrenheitConversion.addEventListener("click", convertToFahrenheit);
 function convertToCelcius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#current-temperature");
-  let celciusTemp = ((temperature.innerHTML - 32) * 5) / 9;
-  temperature.innerHTML = Math.round(celciusTemp);
+  temperature.innerHTML = Math.round(celciusTemperature);
 }
 let celciusConversion = document.querySelector("#celsius-link");
 celciusConversion.addEventListener("click", convertToCelcius);
+
+let celciusTemperature = null;
 
 //changing image with temperature
