@@ -60,7 +60,6 @@ function formatTime() {
   }
   return `${hours}:${minutes}`;
 }
-
 let time = document.querySelector("#time");
 time.innerHTML = formatTime();
 
@@ -144,6 +143,8 @@ function convertToFahrenheit(event) {
   let temperature = document.querySelector("#current-temperature");
   let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(fahrenheitTemp);
+  celciusConversion.classList.remove("active");
+  fahrenheitConversion.classList.add("active");
 }
 
 let fahrenheitConversion = document.querySelector("#fahrenheit-link");
@@ -153,6 +154,8 @@ function convertToCelcius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#current-temperature");
   temperature.innerHTML = Math.round(celciusTemperature);
+  fahrenheitConversion.classList.remove("active");
+  celciusConversion.classList.add("active");
 }
 let celciusConversion = document.querySelector("#celsius-link");
 celciusConversion.addEventListener("click", convertToCelcius);

@@ -55,3 +55,13 @@ h2 {
 #local-time {
   opacity: 0.65;
 }
+
+.active {
+  color: #fff;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: #fff;
+}
