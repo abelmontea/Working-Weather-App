@@ -9,6 +9,7 @@ function showSeattleWeather(response) {
   let lowTemp = document.querySelector("#low-temp");
   let highTemp = document.querySelector("#high-temp");
   let humidity = document.querySelector("#humidity");
+  let weatherIcon = document.querySelector("#weather-icon");
   let wind = document.querySelector("#wind-speed");
   let description = response.data.weather[0].main;
   let showHumidity = response.data.main.humidity;
@@ -16,12 +17,17 @@ function showSeattleWeather(response) {
   let cityTemp = Math.round(response.data.main.temp);
   let showLowTemp = Math.round(response.data.main.temp_min);
   let showHighTemp = Math.round(response.data.main.temp_max);
+
   cityDescription.innerHTML = `<h2>${description}</h2>`;
   currentTemp.innerHTML = `${cityTemp}`;
   lowTemp.innerHTML = `${showLowTemp}°`;
   highTemp.innerHTML = `${showHighTemp}°`;
   humidity.innerHTML = `${showHumidity}`;
   wind.innerHTML = `${showWind}`;
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   celciusTemperature = response.data.main.temp;
 }
 
@@ -81,6 +87,7 @@ function showCurrentCity() {
     let lowTemp = document.querySelector("#low-temp");
     let highTemp = document.querySelector("#high-temp");
     let newCity = document.querySelector("#city-state");
+    let weatherIcon = document.querySelector("#weather-icon");
     let wind = document.querySelector("#wind-speed");
     let description = response.data.weather[0].main;
     let showHumidity = response.data.main.humidity;
@@ -88,6 +95,7 @@ function showCurrentCity() {
     let cityTemp = Math.round(response.data.main.temp);
     let showLowTemp = Math.round(response.data.main.temp_min);
     let showHighTemp = Math.round(response.data.main.temp_max);
+
     cityDescription.innerHTML = `<h2>${description}</h2>`;
     currentTemp.innerHTML = `${cityTemp}`;
     highTemp.innerHTML = `${showHighTemp}°`;
@@ -95,6 +103,10 @@ function showCurrentCity() {
     lowTemp.innerHTML = `${showLowTemp}°`;
     newCity.innerHTML = `${response.data.name} Weather`;
     wind.innerHTML = `${showWind}`;
+    weatherIcon.setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
     celciusTemperature = response.data.main.temp;
   }
 }
@@ -116,12 +128,18 @@ function newCityTemperature(response) {
   let lowTemp = document.querySelector("#low-temp");
   let showHighTemp = Math.round(response.data.main.temp_max);
   let showLowTemp = Math.round(response.data.main.temp_min);
+  let weatherIcon = document.querySelector("#weather-icon");
+
   highTemp.innerHTML = `${showHighTemp}°`;
   lowTemp.innerHTML = `${showLowTemp}°`;
   currentTemp.innerHTML = `${cityTemp}`;
   humidity.innerHTML = `${showHumidity}`;
   wind.innerHTML = `${showWind}`;
   cityDescription.innerHTML = `<h2>${description}</h2>`;
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   celciusTemperature = response.data.main.temp;
 }
 
@@ -161,5 +179,3 @@ let celciusConversion = document.querySelector("#celsius-link");
 celciusConversion.addEventListener("click", convertToCelcius);
 
 let celciusTemperature = null;
-
-//changing image with temperature

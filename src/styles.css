@@ -17,22 +17,37 @@ body {
 }
 h2 {
   font-weight: 700;
-  margin: 0;
+  line-height: 1;
+}
+.active {
+  color: #fff;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: #fff;
 }
 .container {
   padding-top: 30px;
 }
-#weather-info {
-  padding: 15px;
-  margin-top: 30px;
-}
-#current-temperature-img {
-  text-align: right;
-  padding: 15px;
-}
 #city-state {
   font-weight: 600;
   font-size: 1.25rem;
+}
+#city-state::first-letter {
+  text-transform: capitalize;
+}
+#current-temperature {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+#current-temperature-img {
+  text-align: right;
+  line-height: 1.1;
+}
+#local-time {
+  opacity: 0.65;
 }
 #weather-info {
   background: linear-gradient(
@@ -40,28 +55,12 @@ h2 {
     rgb(111, 64, 152) 0%,
     rgb(162, 117, 151) 100%
   );
-}
-#current-temperature {
-  font-size: 80px;
-  font-weight: 600;
-  line-height: 1.1;
+  padding: 15px;
+  margin-top: 30px;
 }
 #units {
   float: right;
   position: relative;
   left: -240px;
-  top: 10px;
-}
-#local-time {
-  opacity: 0.65;
-}
-
-.active {
-  color: #fff;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: #fff;
+  top: 19px;
 }
