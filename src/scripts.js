@@ -52,15 +52,14 @@ day.innerHTML = `${days[now.getDay()]}`;
 function formatTime() {
   let hours = now.getHours();
   let minutes = now.getMinutes();
-
-  if (hours < 10) {
-    hours = `${hours}`;
-    minutes = `${minutes} AM`;
-  }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  if (hours > 10) {
+  if (hours < 12) {
+    hours = `${hours}`;
+    minutes = `${minutes} AM`;
+  }
+  if (hours >= 13) {
     hours = `${hours - 12}`;
     minutes = `${minutes} PM`;
   }
@@ -143,7 +142,7 @@ function newCityTemperature(response) {
   celciusTemperature = response.data.main.temp;
 }
 
-function showNewCity() {
+function showNewCity(event) {
   event.preventDefault();
   let city = document.querySelector(".search-city");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=metric&appid=2e10dd656c312415a04f00d607cce045`;
@@ -152,8 +151,8 @@ function showNewCity() {
   axios.get(apiUrl).then(newCityTemperature);
 }
 
-let searchButton = document.querySelector(".search-button");
-searchButton.addEventListener("click", showNewCity);
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", showNewCity);
 
 //unit conversion
 function convertToFahrenheit(event) {

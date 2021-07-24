@@ -19,6 +19,12 @@ h2 {
   font-weight: 700;
   line-height: 1;
 }
+a {
+  color: #c2a7c3;
+}
+a:hover {
+  color: #fff;
+}
 .active {
   color: #fff;
   cursor: default;
@@ -29,6 +35,18 @@ h2 {
 }
 .container {
   padding-top: 30px;
+}
+.github-link {
+  color: #6f4097;
+}
+.github-link a {
+  color: #6f4097;
+}
+.github-link a:hover {
+  color: #fff;
+}
+form .use-current-location {
+  max-width: 150px;
 }
 #city-state {
   font-weight: 600;

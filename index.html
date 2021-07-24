@@ -22,30 +22,31 @@
   </head>
   <body>
     <div class="container">
-      <div id="search-engine" class="row justify-content-evenly">
-        <div class="col">
-          <input
-            type="text"
-            placeholder="Look up any city!"
-            class="search-city form-control"
-          />
+      <form id="search-form">
+        <div id="search-engine" class="row justify-content-evenly">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Look up any city!"
+              class="search-city form-control"
+            />
+          </div>
+          <div class="col-md-auto">
+            <input
+              type="submit"
+              value="Search"
+              class="search-button btn btn-success"
+            />
+          </div>
+          <div class="col-md-auto">
+            <input
+              type="click"
+              value="Current Location"
+              class="use-current-location btn btn-primary"
+            />
+          </div>
         </div>
-        <div class="col-md-auto">
-          <input
-            type="submit"
-            value="Search"
-            class="search-button btn btn-success"
-          />
-        </div>
-        <div class="col-md-auto">
-          <input
-            type="submit"
-            value="Current Location"
-            class="use-current-location btn btn-primary"
-          />
-        </div>
-      </div>
-
+      </form>
       <div id="weather-info" class="border-white rounded">
         <div id="city-state">Seattle Weather</div>
         <div id="local-time">
@@ -72,6 +73,13 @@
           <br />
           Wind: <span id="wind-speed"></span> m/s
         </div>
+      </div>
+      <div class="github-link text-center">
+        <a
+          href="https://github.com/abelmontea/Working-Weather-App"
+          target="_blank"
+          >Open-source code</a
+        >, by Aisha Natividad
       </div>
     </div>
     <script src="src/scripts.js"></script>
