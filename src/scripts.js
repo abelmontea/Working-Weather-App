@@ -178,3 +178,29 @@ let celciusConversion = document.querySelector("#celsius-link");
 celciusConversion.addEventListener("click", convertToCelcius);
 
 let celciusTemperature = null;
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast-data");
+  let forecastHTML = `<div class="row justify-content-start text-center">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col first-forecast border-right">
+    <span id="first-day">${day}</span>
+    <div id="first-day-temp" class="forecast-temp">
+      85°
+    </div>
+    <img
+      src="https://openweathermap.org/img/wn/01n@2x.png"
+      class="first-day-image"
+    />
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+displayForecast();
