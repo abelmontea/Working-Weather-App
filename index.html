@@ -39,11 +39,9 @@
             />
           </div>
           <div class="col-md-auto">
-            <input
-              type="click"
-              value="Current Location"
-              class="use-current-location btn btn-primary"
-            />
+            <button class="use-current-location btn btn-primary">
+              Current Location
+            </button>
           </div>
         </div>
       </form>
@@ -75,7 +73,9 @@
         </div>
       </div>
       <div id="weather-forecast" class="border-white rounded">
-        <div id="forecast-city">Forecast for Seattle</div>
+        <div id="forecast">
+          Forecast for <span id="forecast-city">Seattle</span>
+        </div>
         <div id="forecast-data"></div>
       </div>
       <div class="github-link text-center">

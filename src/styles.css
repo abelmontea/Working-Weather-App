@@ -36,6 +36,10 @@ a:hover {
 .container {
   padding-top: 30px;
 }
+.forecast-temp {
+  color: #1b4de4;
+}
+
 .github-link {
   color: #6f4097;
 }
@@ -64,6 +68,7 @@ form .use-current-location {
   text-align: right;
   line-height: 1.1;
 }
+
 #local-time {
   opacity: 0.65;
 }
@@ -89,10 +94,13 @@ form .use-current-location {
   padding: 15px;
 }
 
-#forecast-city {
+#forecast {
   font-weight: 600;
   font-size: 1.25rem;
   padding-bottom: 15px;
+}
+#forecast-city {
+  text-transform: capitalize;
 }
 
 .forecast-temp {
