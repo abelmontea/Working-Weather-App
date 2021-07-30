@@ -25,14 +25,6 @@ a {
 a:hover {
   color: #fff;
 }
-.active {
-  color: #fff;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-  color: #fff;
-}
 .container {
   padding-top: 30px;
 }
@@ -84,7 +76,7 @@ form .use-current-location {
 #units {
   float: right;
   position: relative;
-  left: -240px;
+  left: -275px;
   top: 19px;
 }
 

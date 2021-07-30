@@ -1,6 +1,6 @@
 //upon loading weather
 function seattleWeather() {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=seattle&units=metric&appid=2e10dd656c312415a04f00d607cce045`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=seattle&units=imperial&appid=2e10dd656c312415a04f00d607cce045`;
   axios.get(apiUrl).then(showSeattleWeather);
 }
 function showSeattleWeather(response) {
@@ -28,9 +28,8 @@ function showSeattleWeather(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celciusTemperature = response.data.main.temp;
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=47.6062&lon=-122.3321&appid=2e10dd656c312415a04f00d607cce045&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=47.6062&lon=-122.3321&appid=2e10dd656c312415a04f00d607cce045&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -79,10 +78,10 @@ function showCurrentCity(event) {
     let lat = Math.round(position.coords.latitude);
     let long = Math.round(position.coords.longitude);
     let apiKey = "2e10dd656c312415a04f00d607cce045";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=${apiKey}`;
     axios.get(apiUrl).then(changeCityandTemperature);
 
-    let forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+    let forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=imperial`;
     axios.get(forecastApi).then(displayForecast);
   }
   function changeCityandTemperature(response) {
@@ -114,7 +113,6 @@ function showCurrentCity(event) {
       "src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-    celciusTemperature = response.data.main.temp;
   }
 }
 
@@ -147,7 +145,6 @@ function newCityTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celciusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
 }
@@ -155,7 +152,7 @@ function newCityTemperature(response) {
 function showNewCity(event) {
   event.preventDefault();
   let city = document.querySelector(".search-city");
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=metric&appid=2e10dd656c312415a04f00d607cce045`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=imperial&appid=2e10dd656c312415a04f00d607cce045`;
   let newCity = document.querySelector("#city-state");
   let forecastCity = document.querySelector("#forecast-city");
   forecastCity.innerHTML = `${city.value}`;
@@ -165,31 +162,6 @@ function showNewCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showNewCity);
-
-//unit conversion
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temperature");
-  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fahrenheitTemp);
-  celciusConversion.classList.remove("active");
-  fahrenheitConversion.classList.add("active");
-}
-
-let fahrenheitConversion = document.querySelector("#fahrenheit-link");
-fahrenheitConversion.addEventListener("click", convertToFahrenheit);
-
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temperature");
-  temperature.innerHTML = Math.round(celciusTemperature);
-  fahrenheitConversion.classList.remove("active");
-  celciusConversion.classList.add("active");
-}
-let celciusConversion = document.querySelector("#celsius-link");
-celciusConversion.addEventListener("click", convertToCelcius);
-
-let celciusTemperature = null;
 
 //forecast functionality
 function displayForecast(response) {
@@ -221,7 +193,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "2e10dd656c312415a04f00d607cce045";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
